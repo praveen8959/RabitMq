@@ -1,0 +1,5 @@
+rabbit:
+  queue:
+    name: rab_test_queue
+    exchange: rab_test_exchange
+    routingkey: rab_test_routingKey
