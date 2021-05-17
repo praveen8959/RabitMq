@@ -30,7 +30,7 @@ public class DominosController {
 
     @PostMapping("/{vegOrNonVeg}")
     public OrderStatus orderPizza(@RequestBody OrderDetails orderDetails, @PathVariable String vegOrNonVeg) {
-        orderDetails.setOrderId(new Random().nextInt());
+        orderDetails.setOrderId(new Random().nextInt(Integer.SIZE - 1));
         template.convertAndSend(exchange, routingKey, orderDetails);
         return OrderStatus.builder()
                 .message(vegOrNonVeg + " Pizza order confirmed")
